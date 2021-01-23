@@ -71,3 +71,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/stats', 'StatAd
 Route::middleware(['auth:sanctum', 'verified'])->post('/dashboard/stats/save', 'StatAdminController@saveSt')->name('Savestat');
 Route::middleware(['auth:sanctum', 'verified'])->post('/dashboard/stats/edit', 'StatAdminController@editSt')->name('Editstat');
 Route::middleware(['auth:sanctum', 'verified'])->post('/dashboard/stats/delete', 'StatAdminController@deleteSt')->name('Deletestat');
+
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/profile', function ()
+// {
+//   return view('profile');
+// })->name('profile');

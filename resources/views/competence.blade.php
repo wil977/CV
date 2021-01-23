@@ -71,36 +71,39 @@ active
                     <div class="card-body">
                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
                         <br>
-                        <table class="table table-dark table-striped table-bordered table-hover table-responsive-sm">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nom</th>
-                                    <th>Couleur</th>
-                                    <th>Pourcentage de compétence</th>
-                                    <th><a href="#" id="create-modal" class="create-modal btn btn-success"><i class="fa fa-plus"></i></a></th>
-                                </tr>
-                            </thead>
-                            <tbody id="myTable">
-                                {{csrf_field()}}
-                                @if (count($comps)>0)
+                        <div class="table-responsive-md">
+                            <table class="table table-dark table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th><a href="#" id="create-modal" class="create-modal btn btn-success"><i class="fa fa-plus"></i></a></th>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Couleur</th>
+                                        <th>Pourcentage de compétence</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTable">
+                                    {{csrf_field()}}
+                                    @if (count($comps)>0)
+                                    @foreach ($comps as $cmp => $p)
+                                    <tr>
+                                        <td>
+                                            <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id={{$p->id}} data-name='{{$p->name}}' data-colors='{{$p->colors}}' data-width='{{$p->width}}'><i class="fa fa-eye"></i></a>
+                                            <a href="#" style="margin-bottom:5px;" class="edit-modal btn btn-warning" data-id={{$p->id}} data-name='{{$p->name}}' data-colors='{{$p->colors}}' data-width='{{$p->width}}'><i class="fa fa-pen"></i></a>
+                                            <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}} data-name='{{$p->name}}' data-colors='{{$p->colors}}' data-width='{{$p->width}}'><i class="fa fa-trash"></i></a>
+                                        </td>
+                                        <td>{{$p->id}}</td>
+                                        <td>{{$p->name}}</td>
+                                        <td>{{$p->colors}}</td>
+                                        <td>{{$p->width}}</td>
 
-                                @foreach ($comps as $cmp => $p)
-                                <tr>
-                                    <td>{{$p->id}}</td>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->colors}}</td>
-                                    <td>{{$p->width}}</td>
-                                    <td>
-                                        <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id={{$p->id}} data-name='{{$p->name}}' data-colors='{{$p->colors}}' data-width='{{$p->width}}'><i class="fa fa-eye"></i></a>
-                                        <a href="#" style="margin-bottom:5px;" class="edit-modal btn btn-warning" data-id={{$p->id}} data-name='{{$p->name}}' data-colors='{{$p->colors}}' data-width='{{$p->width}}'><i class="fa fa-pen"></i></a>
-                                        <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}} data-name='{{$p->name}}' data-colors='{{$p->colors}}' data-width='{{$p->width}}'><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
                     <!-- /.card-body -->
                 </div>

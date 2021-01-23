@@ -72,40 +72,42 @@ active
                     <div class="card-body">
                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
                         <br>
-                        <table class="table table-dark table-striped table-bordered table-hover table-responsive-md">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Titre</th>
-                                    <th>Contenu</th>
-                                    <th>Annee</th>
-                                    <th>Couleur</th>
-                                    <th><a href="#" id="create-modal" class="create-modal btn btn-success"><i class="fa fa-plus"></i></a></th>
-                                </tr>
-                            </thead>
-                            <tbody id="myTable">
-                                {{csrf_field()}}
-                                @if (count($exps)>0)
+                        <div class="table-responsive-md">
+                            <table class="table table-dark table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th><a href="#" id="create-modal" class="create-modal btn btn-success"><i class="fa fa-plus"></i></a></th>
+                                        <th>Id</th>
+                                        <th>Titre</th>
+                                        <th>Contenu</th>
+                                        <th>Annee</th>
+                                        <th>Couleur</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTable">
+                                    {{csrf_field()}}
+                                    @if (count($exps)>0)
 
-                                @foreach ($exps as $exp => $p)
-                                <tr>
-                                    <td>{{$p->id}}</td>
-                                    <td>{{$p->titre}}</td>
-                                    <td>{{$p->contenu}}</td>
-                                    <td>{{$p->annee}}</td>
-                                    <td>{{$p->color}}</td>
-                                    <td>
-                                        <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id='{{$p->id}}' data-titre='{{$p->titre}}' data-contenu='{{$p->contenu}}' data-annee='{{$p->annee}}' data-color='{{$p->color}}'><i
-                                              class="fa fa-eye"></i></a>
-                                        <a href="#" style="margin-bottom:5px;" class="edit-modal btn btn-warning" data-id='{{$p->id}}' data-titre='{{$p->titre}}' data-contenu='{{$p->contenu}}' data-annee='{{$p->annee}}' data-color='{{$p->color}}'><i
-                                              class="fa fa-pen"></i></a>
-                                        <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}} data-titre='{{$p->titre}}'><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                    @foreach ($exps as $exp => $p)
+                                    <tr>
+                                        <td>
+                                            <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id='{{$p->id}}' data-titre='{{$p->titre}}' data-contenu='{{$p->contenu}}' data-annee='{{$p->annee}}' data-color='{{$p->color}}'><i
+                                                  class="fa fa-eye"></i></a>
+                                            <a href="#" style="margin-bottom:5px;" class="edit-modal btn btn-warning" data-id='{{$p->id}}' data-titre='{{$p->titre}}' data-contenu='{{$p->contenu}}' data-annee='{{$p->annee}}'
+                                              data-color='{{$p->color}}'><i class="fa fa-pen"></i></a>
+                                            <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}} data-titre='{{$p->titre}}'><i class="fa fa-trash"></i></a>
+                                        </td>
+                                        <td>{{$p->id}}</td>
+                                        <td>{{$p->titre}}</td>
+                                        <td>{{$p->contenu}}</td>
+                                        <td>{{$p->annee}}</td>
+                                        <td>{{$p->color}}</td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>

@@ -17,7 +17,13 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
+                <div class="user-panel nav-item">
+                    <div class="image">
+                        <img src="{!! asset('dist/img/user2-160x160.jpg') !!}" class="img-circle" alt="User Image">
+                    </div>
+                </div>
                 <li class="nav-item dropdown">
+
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         {{Auth::user()->name}}
                     </a>
@@ -38,12 +44,12 @@
     </div> --}}
     <div class="mt-3 space-y-1 dropdown-menu">
         <!-- Account Management -->
-        <x-jet-responsive-nav-link class="dropdown-item text-secondary" href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+        <x-jet-responsive-nav-link class="dropdown-item text-secondary" href="{{ url('user/profile') }}" :active="request()->routeIs('user/profile')">
             {{ __('Profile') }}
         </x-jet-responsive-nav-link>
 
         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-        <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+        <x-jet-responsive-nav-link href="{{ url('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
             {{ __('API Tokens') }}
         </x-jet-responsive-nav-link>
         @endif
@@ -54,7 +60,7 @@
 
             <x-jet-responsive-nav-link class="dropdown-item text-secondary" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                         this.closest('form').submit();">
-                {{ __('Logout') }}
+                {{ __('Deconnexion') }}
             </x-jet-responsive-nav-link>
         </form>
 
@@ -98,7 +104,7 @@
         <!-- Brand Logo -->
         <a href="{{route('dashboard')}}" class="brand-link">
             <img src="{!! asset('dist/img/AdminLTELogo.png') !!}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">Administration</span>
+            <span class="brand-text font-weight-light">Admin du site</span>
         </a>
 
         <!-- Sidebar -->

@@ -53,40 +53,41 @@ active
                     <div class="card-body">
                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
                         <br>
-                        <table class="table table-dark table-striped table-bordered table-hover table-responsive-md">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Subject</th>
-                                    <th>Message</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody id="myTable">
-                                {{csrf_field()}}
-                                @if (count($mes)>0)
+                        <div class="table-responsive-md">
+                            <table class="table table-dark table-striped table-bordered table-hover table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTable">
+                                    {{csrf_field()}}
+                                    @if (count($mes)>0)
 
-                                @foreach ($mes as $me => $p)
-                                <tr>
-                                    <td>{{$p->id}}</td>
-                                    <td>{{$p->name}}</td>
-                                    <td>{{$p->email}}</td>
-                                    <td>{{$p->subject}}</td>
-                                    <td>{{$p->message}}</td>
-                                    <td>{{$p->created_at}}</td>
-                                    <td>
-                                        <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id='{{$p->id}}' data-name='{{$p->name}}' data-email='{{$p->email}}' data-subject='{{$p->subject}}' data-message='{{$p->message}}'><i
-                                              class="fa fa-eye"></i></a>
-                                        <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}} data-name='{{$p->name}}'><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                </tr>
-                                @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                    @foreach ($mes as $me => $p)
+                                    <tr>
+                                        <td>
+                                            <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id='{{$p->id}}' data-name='{{$p->name}}' data-email='{{$p->email}}' data-subject='{{$p->subject}}'
+                                              data-message='{{$p->message}}'><i class="fa fa-eye"></i></a>
+                                            <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}} data-name='{{$p->name}}'><i class="fa fa-trash"></i></a>
+                                        </td>
+                                        <td>{{$p->id}}</td>
+                                        <td>{{$p->name}}</td>
+                                        <td>{{$p->email}}</td>
+                                        <td>{{$p->subject}}</td>
+                                        <td>{{$p->message}}</td>
+                                        <td>{{$p->created_at}}</td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>

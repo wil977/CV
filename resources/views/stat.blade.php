@@ -69,35 +69,38 @@ active
                     <div class="card-body">
                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
                         <br>
-                        <table class="table table-dark table-striped table-bordered table-hover table-responsive-md">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre de tasse de thé</th>
-                                    <th>Nombre de projet réaliser</th>
-                                    <th>Nombre de client satisfait</th>
-                                    <th><a href="#" id="create-modal" class="create-modal btn btn-success"><i class="fa fa-plus"></i></a></th>
-                                </tr>
-                            </thead>
-                            <tbody id="myTable">
-                                {{csrf_field()}}
-                                @if (count($stats)>0)
-                                @foreach ($stats as $stat => $p)
-                                <tr>
-                                    <td>{{$p->id}}</td>
-                                    <td>{{$p->tasse}}</td>
-                                    <td>{{$p->projet}}</td>
-                                    <td>{{$p->client}}</td>
-                                    <td>
-                                        <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id='{{$p->id}}' data-tasse='{{$p->tasse}}' data-projet='{{$p->projet}}' data-client='{{$p->client}}'><i class="fa fa-eye"></i></a>
-                                        <a href="#" style="margin-bottom:5px;" class="edit-modal btn btn-warning" data-id='{{$p->id}}' data-tasse='{{$p->tasse}}' data-projet='{{$p->projet}}' data-client='{{$p->client}}'><i class="fa fa-pen"></i></a>
-                                        <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}}><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                        <div class="table-responsive-md">
+                            <table class="table table-dark table-striped table-bordered table-hover table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th><a href="#" id="create-modal" class="create-modal btn btn-success"><i class="fa fa-plus"></i></a></th>
+                                        <th>Id</th>
+                                        <th>Nombre de tasse de thé</th>
+                                        <th>Nombre de projet réaliser</th>
+                                        <th>Nombre de client satisfait</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTable">
+                                    {{csrf_field()}}
+                                    @if (count($stats)>0)
+                                    @foreach ($stats as $stat => $p)
+                                    <tr>
+                                        <td>
+                                            <a href="#" style="margin-bottom:5px;" class="show-modal btn btn-info" data-id='{{$p->id}}' data-tasse='{{$p->tasse}}' data-projet='{{$p->projet}}' data-client='{{$p->client}}'><i class="fa fa-eye"></i></a>
+                                            <a href="#" style="margin-bottom:5px;" class="edit-modal btn btn-warning" data-id='{{$p->id}}' data-tasse='{{$p->tasse}}' data-projet='{{$p->projet}}' data-client='{{$p->client}}'><i
+                                                  class="fa fa-pen"></i></a>
+                                            <a href="#" class="delete-modal btn btn-danger" data-id={{$p->id}}><i class="fa fa-trash"></i></a>
+                                        </td>
+                                        <td>{{$p->id}}</td>
+                                        <td>{{$p->tasse}}</td>
+                                        <td>{{$p->projet}}</td>
+                                        <td>{{$p->client}}</td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>

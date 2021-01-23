@@ -20,7 +20,7 @@ class AcceuilController extends Controller
         'expertises'=> DB::table('expertise')->get(),
         'stat'=>DB::table('stat')->first(),
         'competences'=>DB::table('competence')->get(),
-        'educations'=>DB::table('education')->get(),
+        'educations'=>DB::table('education')->orderByDesc('id')->get(),
         'experiences'=>DB::table('experience')->get(),
         'contact'=>DB::table('contact')->first(),
 
