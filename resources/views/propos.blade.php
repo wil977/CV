@@ -145,9 +145,9 @@
                   <form class="form-horizontal" role="form" action="{{route('Editpropos')}}" method="post">
                       {{csrf_field()}}
                       <div class="form-group row add">
-                          <label for="commentaire" class="control-label col-sm-4">Id :</label>
+                          {{-- <label for="commentaire" class="control-label col-sm-4">Id :</label> --}}
                           <div class="col-sm-8">
-                              <input type="text" id="idmodif" name="idmodif" class="form-control" required>
+                              <input type="hidden" id="idmodif" name="idmodif" class="form-control" required>
                           </div>
                       </div>
                       <div class="form-group row add">
@@ -209,9 +209,9 @@
                   <form class="form-horizontal" role="form" action="{{route('Deletepropos')}}" method="post">
                       {{csrf_field()}}
                       <div class="form-group row add">
-                          <label for="commentaire" class="control-label col-sm-4">Id :</label>
+                          {{-- <label for="commentaire" class="control-label col-sm-4">Id :</label> --}}
                           <div class="col-sm-8">
-                              <input type="text" id="iddelete" name="iddelete" class="form-control" required>
+                              <input type="hidden" id="iddelete" name="iddelete" class="form-control" required>
                           </div>
                       </div>
                       <p>Voulez-Vous vraiment supprimer ce propos ?</p>

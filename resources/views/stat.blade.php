@@ -193,7 +193,7 @@ active
                 <form class="form-horizontal" role="form" action="{!! route('Editstat') !!}" method="post">
                     {{csrf_field()}}
                     <div class="form-group add">
-                        <input type="number" class="form-control" placeholder="Entrez l'id" name="id" id="edId" />
+                        <input type="hidden" class="form-control" placeholder="Entrez l'id" name="id" id="edId" />
                         <p class="error text-center hidden" style="color:red;"></p>
                     </div>
                     <div class="form-group add">
@@ -234,10 +234,10 @@ active
                 <form class="form-horizontal" role="form" action="{!! route('Deletestat') !!}" method="post">
                     {{csrf_field()}}
                     <div class="form-group add">
-                        <input type="text" class="form-control" placeholder="Entrez l'id" name="id" id="delId" />
+                        <input type="hidden" class="form-control" placeholder="Entrez l'id" name="id" id="delId" />
                         <p class="error text-center hidden" style="color:red;"></p>
                     </div>
-                    <p>Voulez vous vriament supprimer cet stat</p>
+                    <p>Voulez vous vriament supprimer cet stat ?</p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger" id="add">

@@ -21,7 +21,7 @@ class AcceuilController extends Controller
         'stat'=>DB::table('stat')->first(),
         'competences'=>DB::table('competence')->get(),
         'educations'=>DB::table('education')->orderByDesc('id')->get(),
-        'experiences'=>DB::table('experience')->get(),
+        'experiences'=>DB::table('experience')->orderByDesc('id')->get(),
         'contact'=>DB::table('contact')->first(),
 
       ]);

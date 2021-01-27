@@ -26,6 +26,6 @@ class UploadcvAdminController extends Controller
     public function downloadFile()
     {
       // return Storage::download(asset('storage/app/public/CVWilfrid.pdf'));
-      return response()->download(public_path('storage/CVWilfrid.pdf'),'CVWilfrid.pdf');
+      return response()->download(public_path('storage/CVWilfrid.pdf'),'CV_DE_Wilfrid.pdf');
     }
 }

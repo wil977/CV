@@ -147,10 +147,10 @@ active
                 <form class="form-horizontal" role="form" action="{!! route('Deletemessage') !!}" method="post">
                     {{csrf_field()}}
                     <div class="form-group add">
-                        <input type="text" class="form-control" placeholder="Entrez l'id" name="id" id="delId" />
+                        <input type="hidden" class="form-control" placeholder="Entrez l'id" name="id" id="delId" />
                         <p class="error text-center hidden" style="color:red;"></p>
                     </div>
-                    <p>Voulez vous vriament supprimer <b id="delName"></b></p>
+                    <p>Voulez vous vriament supprimer ce message ?<b id="delName"></b></p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger" id="add">

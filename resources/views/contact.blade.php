@@ -196,7 +196,7 @@ active
                 <form class="form-horizontal" role="form" action="{!! route('Editcontact') !!}" method="post">
                     {{csrf_field()}}
                     <div class="form-group add">
-                        <input type="text" class="form-control" placeholder="Entrez le titre" name="id" id="edId" />
+                        <input type="hidden" class="form-control" placeholder="Entrez le titre" name="id" id="edId" />
                         <p class="error text-center hidden" style="color:red;"></p>
                     </div>
                     <div class="form-group add">
@@ -237,10 +237,10 @@ active
                 <form class="form-horizontal" role="form" action="{!! route('Deletecontact') !!}" method="post">
                     {{csrf_field()}}
                     <div class="form-group add">
-                        <input type="text" class="form-control" placeholder="Entrez l'id" name="id" id="delId" />
+                        <input type="hidden" class="form-control" placeholder="Entrez l'id" name="id" id="delId" />
                         <p class="error text-center hidden" style="color:red;"></p>
                     </div>
-                    <p>Voulez vous vriament supprimer <b id="delEmail"></b></p>
+                    <p>Voulez vous vriament supprimer ces informations de contact ?</p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger" id="add">
